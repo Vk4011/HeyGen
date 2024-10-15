@@ -10,16 +10,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* Ensure the whole layout uses flex and min-h-screen */}
         <div className="flex flex-col min-h-screen">
-          {/* Navbar and main content */}
           <Navbar />
           <div className="flex-grow">
             <Routes>
               <Route path="/" element={<Landing />} />
             </Routes>
           </div>
-          {/* Footer remains at the bottom */}
           <Footer />
         </div>
       </BrowserRouter>
