@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Landing from "./components/Landing";
+import MidPage from "./pages/MidPage";
 
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
           <Navbar />
          
           <div className="flex-grow">
-            <Routes>{/* <Route path="/" element={<Landing />} /> */}</Routes>
+            <Routes>
+              <Route path="/" element={<MidPage />} />
+            </Routes>
           </div>
           <Footer />
         </div>

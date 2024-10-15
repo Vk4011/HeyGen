@@ -63,7 +63,9 @@ const Navbar = () => {
         </div>
 
         {/* Links */}
-        <div className="flex space-x-12 text-sm"> {/* Adjust space-x to create gap between items */}
+        <div className="flex space-x-12 text-sm">
+          {" "}
+          {/* Adjust space-x to create gap between items */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -83,7 +85,11 @@ const Navbar = () => {
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.products ? "block" : "hidden"
               }`}
-              style={{ width: "800px", left: "50%", transform: "translateX(-50%)" }}
+              style={{
+                width: "800px",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
             >
               {/* Flexbox for Product Options */}
               <div className="flex justify-between text-center py-4 px-16">
@@ -106,7 +112,6 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -145,7 +150,6 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -181,7 +185,6 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -211,7 +214,6 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-
           <a href="#" className="hover:text-purple-500">
             Pricing
           </a>
@@ -230,7 +232,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <Landing/>
+      <Landing />
     </div>
   );
 };

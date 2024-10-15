@@ -23,11 +23,6 @@ const Landing = () => {
         Unlimited video | No credit card needed
       </p>
       <Vedio />
-      <center>
-        <p className="text-3xl text-gray-500 mt-2">
-          Trusted by over 45,000 customers | Rated 4.8/5 on G2
-        </p>
-      </center>
     </div>
   );
 };
