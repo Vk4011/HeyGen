@@ -1,7 +1,7 @@
+// Navbar.js
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
-import { motion } from "framer-motion"; // Import Framer Motion
-import Landing from "./Landing";
+import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [bannerVisible, setBannerVisible] = useState(true);
@@ -11,6 +11,7 @@ const Navbar = () => {
     resources: false,
     company: false,
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Toggle dropdown visibility
   const handleDropdown = (id) => {
@@ -25,14 +26,14 @@ const Navbar = () => {
       {/* Top banner */}
       {bannerVisible && (
         <center>
-          <div className="bg-[#7B35B5] text-white font-[Ppobjectsans,sans-serif] text-[14.416px] py-[8.312px] px-4 flex justify-center relative w-[99%] m-[8.208px] rounded-[4px]">
+          <div className="bg-[#7B35B5] text-white text-sm py-2 px-4 flex justify-center relative w-[99%] m-2 rounded-md">
             <span className="text-center">
               Catch our recap of HubSpot INBOUND
             </span>
-            <a href="#" className="text-white underline ml-6">
+            <a href="#" className="text-white underline ml-2">
               Read More
             </a>
-            <span className="ml-4 font-bold">
+            <span className="ml-2 font-bold">
               <img
                 src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66ea33a58e7c84b84f5ef63c_arrow-narrow-right.svg"
                 alt="arrow-right"
@@ -51,10 +52,10 @@ const Navbar = () => {
       )}
 
       {/* Main Navbar */}
-      <nav className="flex justify-between items-center py-[16.416px] px-[8px]">
+      <nav className="flex justify-between items-center py-4 px-4 md:px-8">
         {/* Logo */}
         <div className="flex items-center">
-          <div className="text-2xl font-bold p-[16.416px]">
+          <div className="text-2xl font-bold p-4">
             <img
               src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66e1a30a9a12f4c1d2bb3e9f_heygen-logotype.svg"
               alt="HeyGen"
@@ -62,10 +63,20 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-2xl focus:outline-none"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
         {/* Links */}
-        <div className="flex space-x-12 text-sm">
-          {" "}
-          {/* Adjust space-x to create gap between items */}
+        <div className={`hidden md:flex space-x-8 text-sm`}>
+          {/* Menu items for desktop */}
+          {/* Products Dropdown */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -81,7 +92,6 @@ const Navbar = () => {
               </motion.span>
             </button>
             <div
-              id="products"
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.products ? "block" : "hidden"
               }`}
@@ -112,6 +122,8 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+          {/* Use Cases Dropdown */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -127,11 +139,10 @@ const Navbar = () => {
               </motion.span>
             </button>
             <div
-              id="useCases"
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.useCases ? "block" : "hidden"
               }`}
-              style={{ width: "300px" }} // Adjust the width for this dropdown
+              style={{ width: "300px" }}
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 Agencies
@@ -150,6 +161,8 @@ const Navbar = () => {
               </a>
             </div>
           </div>
+
+          {/* Resources Dropdown */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -165,11 +178,10 @@ const Navbar = () => {
               </motion.span>
             </button>
             <div
-              id="resources"
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.resources ? "block" : "hidden"
               }`}
-              style={{ width: "250px" }} // Adjust the width for Resources dropdown
+              style={{ width: "250px" }}
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 Blog
@@ -185,6 +197,8 @@ const Navbar = () => {
               </a>
             </div>
           </div>
+
+          {/* Company Dropdown */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -200,11 +214,10 @@ const Navbar = () => {
               </motion.span>
             </button>
             <div
-              id="company"
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.company ? "block" : "hidden"
               }`}
-              style={{ width: "200px" }} // Adjust the width for Company dropdown
+              style={{ width: "200px" }}
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 About Us
@@ -214,25 +227,185 @@ const Navbar = () => {
               </a>
             </div>
           </div>
+
+          {/* Pricing Link */}
           <a href="#" className="hover:text-purple-500">
             Pricing
           </a>
         </div>
 
         {/* Buttons */}
-        <div className="flex space-x-4 items-center">
+        <div className="hidden md:flex space-x-4 items-center">
           <button className="text-sm hover:text-purple-500">
             Contact Sales
           </button>
-          <button className="text-sm bg-black text-white py-[12.312px] px-[24.624px] font-semibold rounded-3xl hover:bg-purple-600">
+          <button className="text-sm bg-black text-white py-2 px-6 font-semibold rounded-3xl hover:bg-purple-600">
             Sign up for free
           </button>
-          <button className="text-sm bg-gray-200 text-black py-[9.0288px] px-[16.416px] font-semibold rounded-3xl hover:bg-purple-600 hover:text-white">
+          <button className="text-sm bg-gray-200 text-black py-2 px-4 font-semibold rounded-3xl hover:bg-purple-600 hover:text-white">
             Login
           </button>
         </div>
       </nav>
-      <Landing />
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden">
+          {/* Mobile menu items */}
+          <div className="flex flex-col space-y-4 px-4 py-2">
+            {/* Products Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center w-full text-left hover:text-purple-500"
+                onClick={() => handleDropdown("products")}
+              >
+                Products
+                <motion.span
+                  className="ml-1"
+                  animate={{ rotate: dropdownOpen.products ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaChevronDown />
+                </motion.span>
+              </button>
+              {dropdownOpen.products && (
+                <div className="mt-2 pl-4">
+                  <div>
+                    <h3 className="text-purple-500 font-semibold">CREATE</h3>
+                    <p>Avatar Video</p>
+                  </div>
+                  <div>
+                    <h3 className="text-purple-500 font-semibold">LOCALIZE</h3>
+                    <p>Video Translation</p>
+                  </div>
+                  <div>
+                    <h3 className="text-purple-500 font-semibold">PERSONALIZE</h3>
+                    <p>Personalized Video</p>
+                  </div>
+                  <div>
+                    <h3 className="text-purple-500 font-semibold">INTERACT</h3>
+                    <p>Interactive Avatar</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Use Cases Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center w-full text-left hover:text-purple-500"
+                onClick={() => handleDropdown("useCases")}
+              >
+                Use Cases
+                <motion.span
+                  className="ml-1"
+                  animate={{ rotate: dropdownOpen.useCases ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaChevronDown />
+                </motion.span>
+              </button>
+              {dropdownOpen.useCases && (
+                <div className="mt-2 pl-4">
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Agencies
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Sales
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Marketing
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Learning & Development
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Localization
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Resources Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center w-full text-left hover:text-purple-500"
+                onClick={() => handleDropdown("resources")}
+              >
+                Resources
+                <motion.span
+                  className="ml-1"
+                  animate={{ rotate: dropdownOpen.resources ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaChevronDown />
+                </motion.span>
+              </button>
+              {dropdownOpen.resources && (
+                <div className="mt-2 pl-4">
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Blog
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Affiliate Program
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Weekly Webinar
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Help Center
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Company Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center w-full text-left hover:text-purple-500"
+                onClick={() => handleDropdown("company")}
+              >
+                Company
+                <motion.span
+                  className="ml-1"
+                  animate={{ rotate: dropdownOpen.company ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaChevronDown />
+                </motion.span>
+              </button>
+              {dropdownOpen.company && (
+                <div className="mt-2 pl-4">
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    About Us
+                  </a>
+                  <a href="#" className="block py-1 hover:text-purple-500">
+                    Careers
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Pricing Link */}
+            <a href="#" className="hover:text-purple-500">
+              Pricing
+            </a>
+          </div>
+
+          {/* Mobile Buttons */}
+          <div className="flex flex-col space-y-2 px-4 py-2">
+            <button className="text-sm hover:text-purple-500 text-left">
+              Contact Sales
+            </button>
+            <button className="text-sm bg-black text-white py-2 px-4 font-semibold rounded-3xl hover:bg-purple-600">
+              Sign up for free
+            </button>
+            <button className="text-sm bg-gray-200 text-black py-2 px-4 font-semibold rounded-3xl hover:bg-purple-600 hover:text-white">
+              Login
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

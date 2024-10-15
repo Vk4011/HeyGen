@@ -1,3 +1,4 @@
+// Footer.js
 import React from "react";
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between items-start">
           {/* Logo and CTA */}
-          <div className="relative w-[263px] h-[321px] bg-white rounded-xl overflow-hidden mb-8 md:mb-0 shadow-lg">
+          <div className="relative w-full md:w-[263px] h-[321px] bg-white rounded-xl overflow-hidden mb-8 md:mb-0 shadow-lg">
             <img
               src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66e4920729c590c4e43a4a1e_footer-avatars.gif"
               alt="Person Avatar"
@@ -26,11 +27,11 @@ const Footer = () => {
           </div>
 
           {/* Information Sections */}
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full">
             {/* Use Cases */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Use Cases</h4>
-              <ul className="space-y-2 text-gray-600 text-[19px]">
+              <ul className="space-y-2 text-gray-600 text-base">
                 <li>Agencies</li>
                 <li>Marketing</li>
                 <li>Sales</li>
@@ -47,7 +48,7 @@ const Footer = () => {
             {/* Features */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Features</h4>
-              <ul className="space-y-2 text-gray-600 text-[19px]">
+              <ul className="space-y-2 text-gray-600 text-base">
                 <li>AI Avatars</li>
                 <li>AI Voices</li>
                 <li>Video Translate</li>
@@ -64,7 +65,7 @@ const Footer = () => {
             {/* Resources */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Resources</h4>
-              <ul className="space-y-2 text-gray-600 text-[19px]">
+              <ul className="space-y-2 text-gray-600 text-base">
                 <li>API Documentation</li>
                 <li>FAQ</li>
                 <li>Blog</li>
@@ -81,7 +82,7 @@ const Footer = () => {
             {/* Company */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-600 text-[19px]">
+              <ul className="space-y-2 text-gray-600 text-base">
                 <li>About Us</li>
                 <li>Careers</li>
                 <li>Privacy Policy</li>
@@ -99,21 +100,23 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="mt-8 pt-4 border-t border-gray-300">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-4 text-sm text-gray-600">
-              <img
-                className="lazy-loaded"
-                loading="lazy"
-                src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66acbc45f6dde35184e07314_651f5a63262ba8e6968d9a45_SOC_2_Compliance_Blog_OG%201.avif"
-                alt="Content Authenticity Initiative"
-                style={{ width: "93.76px", height: "31.99px" }}
-              />
-              <img
-                className="lazy-loaded"
-                loading="lazy"
-                src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66acbc4551fee2df87e70b26_65647d339c017f844ae8fe20_c2pa%201.avif"
-                alt="C2 PA"
-                style={{ width: "43px", height: "35px" }}
-              />
+            <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 text-sm text-gray-600">
+              <div className="flex items-center space-x-4">
+                <img
+                  className="lazy-loaded"
+                  loading="lazy"
+                  src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66acbc45f6dde35184e07314_651f5a63262ba8e6968d9a45_SOC_2_Compliance_Blog_OG%201.avif"
+                  alt="Content Authenticity Initiative"
+                  style={{ width: "93.76px", height: "31.99px" }}
+                />
+                <img
+                  className="lazy-loaded"
+                  loading="lazy"
+                  src="https://cdn.prod.website-files.com/66a9edf7bd0139f5207e19be/66acbc4551fee2df87e70b26_65647d339c017f844ae8fe20_c2pa%201.avif"
+                  alt="C2 PA"
+                  style={{ width: "43px", height: "35px" }}
+                />
+              </div>
               <div className="flex flex-col items-start space-y-1 text-sm text-gray-600">
                 <span>&copy; Copyright HeyGen</span>
                 <span>

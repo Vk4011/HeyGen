@@ -1,15 +1,17 @@
+// Landing.js
 import React from "react";
 import Vedio from "./Vedio";
+
 const Landing = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-center px-4">
       {/* Main Heading */}
-      <h1 className="text-5xl md:text-6xl font-normal text-black leading-tight mb-4 mt-10">
+      <h1 className="text-3xl md:text-6xl font-normal text-black leading-tight mb-4 mt-10">
         Create and translate videos with AI
       </h1>
 
       {/* Subheading */}
-      <p className="text-lg md:text-xl text-gray-700 mb-4">
+      <p className="text-base md:text-xl text-gray-700 mb-4">
         Produce studio-quality videos in 175 languages without a camera or crew.
       </p>
 

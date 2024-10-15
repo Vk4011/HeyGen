@@ -2,8 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import MidPage from "./pages/MidPage";
-
+import Landing from "./components/Landing"; // Updated import
 
 function App() {
   console.log("APP.js is running 💻");
@@ -13,10 +12,10 @@ function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Navbar />
-         
+
           <div className="flex-grow">
             <Routes>
-              <Route path="/" element={<MidPage />} />
+              <Route path="/" element={<Landing />} /> {/* Updated component */}
             </Routes>
           </div>
           <Footer />
