@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 
+
 function App() {
   console.log("APP.js is running 💻");
 
@@ -12,10 +13,9 @@ function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Navbar />
+         
           <div className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Landing />} />
-            </Routes>
+            <Routes>{/* <Route path="/" element={<Landing />} /> */}</Routes>
           </div>
           <Footer />
         </div>

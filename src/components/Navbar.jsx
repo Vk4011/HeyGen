@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion"; // Import Framer Motion
+import Landing from "./Landing";
 
 const Navbar = () => {
   const [bannerVisible, setBannerVisible] = useState(true);
@@ -62,7 +63,7 @@ const Navbar = () => {
         </div>
 
         {/* Links */}
-        <div className="flex space-x-6 text-sm">
+        <div className="flex space-x-12 text-sm"> {/* Adjust space-x to create gap between items */}
           <div className="relative dropdown">
             <button
               className="flex items-center hover:text-purple-500"
@@ -82,7 +83,7 @@ const Navbar = () => {
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.products ? "block" : "hidden"
               }`}
-              style={{ width: "800px", left: "50%", transform: "translateX(-50%)" }} // Set width to 800px and center
+              style={{ width: "800px", left: "50%", transform: "translateX(-50%)" }}
             >
               {/* Flexbox for Product Options */}
               <div className="flex justify-between text-center py-4 px-16">
@@ -125,6 +126,7 @@ const Navbar = () => {
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.useCases ? "block" : "hidden"
               }`}
+              style={{ width: "300px" }} // Adjust the width for this dropdown
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 Agencies
@@ -163,6 +165,7 @@ const Navbar = () => {
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.resources ? "block" : "hidden"
               }`}
+              style={{ width: "250px" }} // Adjust the width for Resources dropdown
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 Blog
@@ -198,6 +201,7 @@ const Navbar = () => {
               className={`dropdown-content absolute bg-white shadow-lg p-4 mt-2 rounded-md ${
                 dropdownOpen.company ? "block" : "hidden"
               }`}
+              style={{ width: "200px" }} // Adjust the width for Company dropdown
             >
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                 About Us
@@ -226,6 +230,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+      <Landing/>
     </div>
   );
 };
